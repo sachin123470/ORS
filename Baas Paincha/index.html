@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baas Paincha - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">Baas Paincha</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="#" id="login-link">Login/Register</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div class="tabs">
+                <button class="tab-link active" data-tab="login">Login</button>
+                <button class="tab-link" data-tab="register">Register</button>
+            </div>
+            <div id="login" class="tab-content active">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <div class="login-options">
+                        <button type="submit" class="btn gradient-btn" data-role="owner">Login as Property Owner</button>
+                        <button type="submit" class="btn gradient-btn" data-role="tenant">Login as Tenant</button>
+                    </div>
+                </form>
+                <p>New to Baas Paincha? <a href="#" class="switch-tab" data-tab="register">Register now</a></p>
+            </div>
+            <div id="register" class="tab-content">
+                <h2>Register</h2>
+                <form id="register-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <select required >
+                        <option value="" disabled selected>Select Role...</option>
+                        <option value="owner">Property Owner</option>
+                        <option value="tenant">Tenant</option>
+                    </select>
+                    <div class="register-button-container">
+                        <button type="submit" class="btn gradient-btn">Create Account</button>
+                    </div>
+                </form>
+                <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <h1>Find Your Perfect Home</h1>
+            <p>Rent your dream space with ease and confidence.</p>
+            <a href="#listings" class="btn cta-btn">Browse Properties</a>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Wide Variety</h3>
+                <p>From cozy apartments to spacious houses.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Clear Visuals</h3>
+                <p>High-quality images for every property.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Flexible Pricing</h3>
+                <p>Options for every budget.</p>
+            </div>
+        </section>
+
+        <section class="house-listings" id="listings">
+            <h2>Featured Properties</h2>
+            <div class="listings-container">
+                <div class="house-card">
+                    <img src="https://i.pinimg.com/736x/a8/30/93/a83093988ad7a3e44d60e29fdf6ed5b2.jpg" alt="Cozy Family Home">
+                    <div class="house-info">
+                        <h3>Cozy Family Home</h3>
+                        <p>Rs. 12,000/month</p>
+                        <a href="#" class="btn view-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="house-card">
+                    <img src="https://i.pinimg.com/736x/22/f8/bc/22f8bc16bfcf10ad21453e960a0d35a1.jpg" alt="Modern Apartment">
+                    <div class="house-info">
+                        <h3>Modern Apartment</h3>
+                        <p>Rs. 9,000/month</p>
+                        <a href="#" class="btn view-btn">View Details</a>
+                    </div>
+                </div>
+                <div class="house-card">
+                    <img src="https://i.pinimg.com/736x/4e/e9/5f/4ee95fbae24f003ed6c06300e8a055aa.jpg" alt="Luxury House">
+                    <div class="house-info">
+                        <h3>Luxury House</h3>
+                        <p>Rs. 18,000/month</p>
+                        <a href="#" class="btn view-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Baas Paincha. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
