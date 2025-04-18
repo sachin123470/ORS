@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Property Owner Dashboard - Baas Paincha</title>
+  <link rel="stylesheet" href="{% static 'css/propertyOwner.css' %}"> 
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Baas Paincha</div>
+      <ul class="nav-links">
+                {% comment %} <li><a href="index.html">Home</a></li> {% endcomment %}
+                <li><a href="{% url 'index' %}">Home</a></li>
+
+                {% comment %} <li><a href="contactUs.html">Contact Us</a></li> {% endcomment %}
+                <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                
+                {% comment %} <li><a href="aboutUs.html" class="active">About Us</a></li> {% endcomment %}
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+
+                <li><a href="#" id="login-link">Login/Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h1>Property Owner Dashboard</h1>
+        <a href="#" onclick="toggleAddForm()">Add New Property</a>
+      </div>
+
+      <div id="add-property-form">
+        <h2>Add New Property</h2>
+        <form onsubmit="addProperty(event)">
+          <input type="text" id="title" placeholder="Property Title" required />
+          <input type="text" id="location" placeholder="Location" required />
+          <input type="number" id="rent" placeholder="Rent (Rs.)" required />
+          <input type="url" id="image" placeholder="Image URL" required />
+          <textarea id="description" rows="3" placeholder="Description" required></textarea>
+          <button type="submit">Add Property</button>
+        </form>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>My Properties</h2>
+        <div class="property-list" id="property-list">
+          <!-- Properties will appear here -->
+        </div>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>Tenant Requests</h2>
+        <div class="tenant-requests">
+          <div class="request-card">
+            <h3>Tenant: John Doe</h3>
+            <p>Property: Cozy Family Home</p>
+            <p>Request: Lease Renewal</p>
+            <p>Status: Occupied</p>
+            <a href="#">Respond</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Baas Paincha. All rights reserved.</p>
+  </footer>
+
+  <script src="{% static 'js/propertyOwner.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+</html>
