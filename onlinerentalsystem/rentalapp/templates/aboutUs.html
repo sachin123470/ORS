@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baas Paincha - About Us</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            {% comment %} <div class="logo"><a href="index.html">Baas Paincha</a></div> {% endcomment %}
+            {% comment %} <div class="logo"><a href="{% url 'index' %}">Baas Paincha</a></div> {% endcomment %}
+            <div class="logo">  <a href="{% url 'logo' %}">Baas Paincha</a></div>
+
+            
+            <ul class="nav-links">
+
+                {% comment %} <li><a href="index.html">Home</a></li> {% endcomment %}
+                <li><a href="{% url 'index' %}">Home</a></li>
+
+                {% comment %} <li><a href="contactUs.html">Contact Us</a></li> {% endcomment %}
+                <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                
+                {% comment %} <li><a href="aboutUs.html" class="active">About Us</a></li> {% endcomment %}
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+
+                <li><a href="#" id="login-link">Login/Register</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </nav>
+    </header>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div class="tabs">
+                <button class="tab-link active" data-tab="login">Login</button>
+                <button class="tab-link" data-tab="register">Register</button>
+            </div>
+            <div id="login" class="tab-content active">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                    <div class="login-options">
+                        <button type="submit" class="btn gradient-btn" data-role="owner">Login as Property Owner</button>
+                        <button type="submit" class="btn gradient-btn" data-role="tenant">Login as Tenant</button>
+                    </div>
+                </form>
+                <p>New to Baas Paincha? <a href="#" class="switch-tab" data-tab="register">Register now</a></p>
+            </div>
+            <div id="register" class="tab-content">
+                <h2>Register</h2>
+                <form id="register-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <select required>
+                        <option value="" disabled selected>Select Role...</option>
+                        <option value="owner">Property Owner</option>
+                        <option value="tenant">Tenant</option>
+                    </select>
+                    <div class="register-button-container">
+                        <button type="submit" class="btn gradient-btn">Create Account</button>
+                    </div>
+                </form>
+                <p>Already have an account? <a href="#" class="switch-tab" data-tab="login">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <h1>About Us</h1>
+            <p>Connecting you to your perfect rental experience.</p>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Founded in 2025, Baas Paincha was born from a vision to transform the renting experience for both tenants and property owners. We understand the challenges of finding the perfect home or managing properties, so we’ve made it our mission to simplify every step of the process. With a commitment to transparency, we provide clear information and straightforward solutions. Our innovative approach ensures efficiency, saving time and effort for everyone involved. Above all, we’re passionate about turning renting into an enjoyable journey—connecting people with spaces they love and empowering owners with tools to succeed.</p>
+            </div>
+            <div class="team-section">
+                <h2>Our Team</h2>
+                <div class="team-container">
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <h3>Rakshyak</h3>
+                        <p>Project Manager</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <h3>Nitisha</h3>
+                        <p>Business Analyst</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <h3>Bipash</h3>
+                        <p>Full-Stack Developer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <h3>Prajon</h3>
+                        <p>Backend Developer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <h3>Sachin</h3>
+                        <p>Front-End Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Baas Paincha. All rights reserved.</p>
+    </footer>
+    {% comment %} <script src="script.js"></script> {% endcomment %}
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% comment %} <script src="{% static 'js/propertyOwner.js' %}"></script> {% endcomment %}
+
+</body>
+</html>
