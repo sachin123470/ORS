@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rupesh</title>
+
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(circle, #1a0026, #000);
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Text Animation */
+h1 {
+    margin-top: 80px;
+    font-size: 40px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 30px #ff00ff, 0 0 50px #ff0080; }
+}
+
+/* Cake */
+.cake {
+    font-size: 70px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Balloons */
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    font-size: 30px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-120vh); }
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: red;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Firework circle */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(15); opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media(max-width:600px){
+    h1 { font-size: 28px; }
+    .cake { font-size: 50px; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Happy Birthday Rupesh 🎉</h1>
+<div class="cake">🎂</div>
+
+<script>
+
+// 🎈 Balloons
+function createBalloon() {
+    let b = document.createElement("div");
+    b.className = "balloon";
+    b.innerHTML = "🎈";
+    b.style.left = Math.random() * window.innerWidth + "px";
+    b.style.animationDuration = (4 + Math.random()*3) + "s";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),7000);
+}
+setInterval(createBalloon, 400);
+
+// 🎊 Confetti
+function createConfetti() {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration = (3 + Math.random()*3) + "s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),6000);
+}
+setInterval(createConfetti, 100);
+
+// 🎆 Fireworks
+function createFirework() {
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight / 2;
+
+    for(let i=0;i<20;i++){
+        let f = document.createElement("div");
+        f.className = "firework";
+        f.style.left = x + "px";
+        f.style.top = y + "px";
+        f.style.background = `hsl(${Math.random()*360},100%,50%)`;
+
+        let angle = Math.random() * 2 * Math.PI;
+        let distance = Math.random() * 100;
+
+        f.animate([
+            { transform: 'translate(0,0)', opacity:1 },
+            { transform: `translate(${Math.cos(angle)*distance}px, ${Math.sin(angle)*distance}px)`, opacity:0 }
+        ], {
+            duration: 1000,
+            easing: 'ease-out'
+        });
+
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1000);
+    }
+}
+setInterval(createFirework, 1500);
+
+</script>
+
+</body>
+</html>
